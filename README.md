@@ -1,6 +1,5 @@
 # DOTA: Character Selections and Match Performances
 ## Table of Content
----
 - [Introduction](#introduction)
 - [EDA](#eda)
 - [Hypothesis Testing](#hypothesis-testing)
@@ -10,7 +9,6 @@
 - [Side Note](#side-note)
 
 ## Introduction
----
 The Defense of the Ancients (Dota) was released as a mod of a video game Warcraft III in 2003 and the sequel Dota 2 was released in 2013 as a standalone version by Valve. To this day the developer is pushing out multiple patches to maintain the balance of the gameplay and as a result, it continues to attract a significant number of players in spite of its age.
 
 ![image](img/dota_players_n.png)
@@ -22,7 +20,6 @@ Dota is a multiplyer online battle arena(moba) where 2 teams of up to 5 players 
 For this analysis I'll be investigating whether players' character selections and the game performance measured in the number of kills per match would have any relationships.
 
 ## EDA
----
 The original dataset contains match results between March 2011 to March 2016, containing over 37 million rows representing a number of kills, deaths, and other information from professional to amateur players.
 
 I knew from the start that my computer would not be able to handle the entire dataset and had to come up with a way to take a smaller sample from this dataset.
@@ -51,7 +48,6 @@ The variance for the top 5 is noticeably wider than the rest, but the distributi
 We will perform a hypothesis testing and see if choosing a character from the top 5 would give a player a statistically significant edge over other characters.
 
 ## Hypothesis Testing
----
 Let's go ahead and set up our null and alternate hypotheses:
 
 **Null Hypothesis**: Choosing one of the five most popular characters does not affect the number of kills per match.
@@ -71,7 +67,6 @@ print(f'The p-value from the Welch T test is: {pval}')
 Based on the p-value, we are going to reject the null hypothesis and conclude that there is a difference in kills/match when we choose a character in the top 5 group.
 
 ## Further Investigation
----
 Hmm... Even though the distribution of the kills/match between the top-5 and the rest groups did not look drastically different at first sight, the Welch's t-test indicates that their difference is in fact statistically significant. 
 
 I'll use the Central Limit Theorem (CLT) to explain what is going on. The CLT asserts that the larger the samples we have, the more the distribution of sample means become normally distributed. 
@@ -89,7 +84,6 @@ Because our sample size is so large, the standard error of the sample mean becom
 Specifically, the 95% confidence interval for the top-5 group is 7.77 and 7.87, while the 95% confidence interval for the other group is 5.68 and 5.7, which means that it is extremely unlikely to observe top-5 characters scoring the same or less number of kills per match compared to the other group.
 
 ## Looking Forward
----
 During the initial I noticed that Valve had assigned multiple roles to each of the game characters. The individual character attributes are calibrated to maximize the assigned roles and as such, we can somewhat predict players' actions based on the chosen characters' roles. For example, 4 out of the 5 most popular characters had a role of Carry and 3 out of 5 had the Disabler role as you can see below.
 
 
@@ -116,5 +110,4 @@ If you would like to learn more about the complete list of available roles and t
 * [Initiator](https://dota2.gamepedia.com/Role#Initiator)
 
 ## Side Note
----
 I would like to thank [@odota](https://blog.opendota.com/2017/03/24/datadump2/) and [@waprin](https://github.com/waprin) for preparing and making the data freely available for this analysis. Without their efforts, I wouldn't have been able to collect the data.
