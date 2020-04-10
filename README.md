@@ -31,7 +31,7 @@ Luckily I used the following UNIX command to grab samller subset of this dataset
 
 `cat input.txt | awk 'BEGIN {srand()} !/^$/ { if (rand() <= insert_your_desired_percentage_in_decimal) print $0}' > sample.txt`
 
-Sampling 3%, or 0.03 in decimal, I ended up with a little over a million rows of data to work with. 
+Upon sampling 3%, or 0.03 in decimal, from the original dataset, I ended up with a little over a million rows of data to work with. 
 
 After loading the much smaller sample on Spark to run a number queries, exporting the queried data to Pandas, I recognized that around 15% of the sampled players finished the match playing as Pudge, Sniper, Drow Ranger, Riki and Phantom Assassin out of the pool of 111 playable charcters.
 ![img](/img/pie.png)
